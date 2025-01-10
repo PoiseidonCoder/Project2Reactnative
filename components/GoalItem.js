@@ -3,18 +3,16 @@ import React from "react";
 
 const GoalItem = (props) => {
   return (
-    <Modal>
-      <View style={styles.goalItem}>
-        <Pressable
-          android_ripple={{ color: "black" }}
-          onPress={() => props.onDeleteGoal(props.id)}
-          // style={({ pressData.pressed }) => pressData.pressed && styles.pressedItem}
-          style={({ pressed }) => pressed && styles.pressedItem}
-        >
-          <Text style={styles.goalText}>{props.text}</Text>
-        </Pressable>
-      </View>
-    </Modal>
+    <View style={styles.goalItem}>
+      <Pressable
+        android_ripple={{ color: "black" }}
+        onPress={() => props.onDeleteGoal(props.id)}
+        // style={({ pressData.pressed }) => pressData.pressed && styles.pressedItem}
+        style={({ pressed }) => pressed && styles.pressedItem}
+      >
+        <Text style={styles.goalText}>{props.text}</Text>
+      </Pressable>
+    </View>
   );
 };
 
