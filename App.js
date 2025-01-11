@@ -36,32 +36,35 @@ export default function App() {
     );
   };
   return (
-    <View style={styles.container}>
-      <Button title="Add New Goal" onPress={() => startAddHGoalHandler()} />
-      {modalIsVisible && (
-        <GoalInput
-          onAddGoal={addGoalHandler}
-          onEndGoal={endGoalHandler}
-          visible={modalIsVisible}
-        />
-      )}
-      <View style={styles.listContainer}>
-        <FlatList
-          data={courseGoals}
-          renderItem={(itemData) => {
-            return (
-              <GoalItem
-                text={itemData.item.text}
-                onDeleteGoal={deleteGoalHandler}
-                id={itemData.item.id}
-              />
-            );
-          }}
-          alwaysBounceVertical={false}
-          keyExtractor={(item, index) => item.id}
-        />
+    <>
+      <StatusBar style="dark" />
+      <View style={styles.container}>
+        <Button title="Add New Goal" onPress={() => startAddHGoalHandler()} />
+        {modalIsVisible && (
+          <GoalInput
+            onAddGoal={addGoalHandler}
+            onEndGoal={endGoalHandler}
+            visible={modalIsVisible}
+          />
+        )}
+        <View style={styles.listContainer}>
+          <FlatList
+            data={courseGoals}
+            renderItem={(itemData) => {
+              return (
+                <GoalItem
+                  text={itemData.item.text}
+                  onDeleteGoal={deleteGoalHandler}
+                  id={itemData.item.id}
+                />
+              );
+            }}
+            alwaysBounceVertical={false}
+            keyExtractor={(item, index) => item.id}
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 
